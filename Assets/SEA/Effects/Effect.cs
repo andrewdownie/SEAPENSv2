@@ -4,13 +4,34 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 public class Effect : SerializedMonoBehaviour {
-    [SerializeField]
+	[SerializeField]
+	EffectCategory effectCategory;
+
+
+
+    [TabGroup("Attribute Effects")][SerializeField]
     Dictionary<AttributeEnum, int> attributeEffects;
-	[SerializeField]
+	[TabGroup("Stat Effect")][SerializeField]
 	Dictionary<StatEnum, int> statEffects;
-	[SerializeField]
+	[TabGroup("Percent Stat Effects")][SerializeField]
 	Dictionary<StatEnum, int> percentStatEffects;
+
+	public EffectCategory EffectCategory{
+		get{return effectCategory;}
+	}
 	
+	
+	public void SetupEffect(EffectCategory category, Dictionary<AttributeEnum, int> atts, Dictionary<StatEnum, int> stats, Dictionary<StatEnum, int> percentStats){
+		effectCategory = category;
+		attributeEffects = atts;
+		statEffects = stats;
+		percentStatEffects = percentStats;
+	}
+
+	public void SetupEffect(Effect exisitingEffect){
+		//TODO: how to copy the effect stuff into this effect
+		//TODO: create an effect data class that has the dictionaryies that Effect contains but is just a struct that can be passed around?
+	}
 
 
 
@@ -94,9 +115,12 @@ public class Effect : SerializedMonoBehaviour {
 		return 0;
 	}
 
+}
 
 
-
-
-
+public enum EffectCategory{
+	equipment,
+	active,
+	instant,
+	toggle,
 }

@@ -58,6 +58,7 @@
      <Compile Include="Assets\SEA\Attributes\StartingAttributes.cs" />
      <Compile Include="Assets\SEA\Effects\AttributeEffects.cs" />
      <Compile Include="Assets\SEA\Effects\Effect.cs" />
+     <Compile Include="Assets\SEA\Effects\Effects.cs" />
      <Compile Include="Assets\SEA\Effects\PercentStatEffects.cs" />
      <Compile Include="Assets\SEA\Effects\StatEffects.cs" />
      <Compile Include="Assets\SEA\ISEA_Component.cs" />
