@@ -6,11 +6,12 @@ using UnityEngine;
 //Stat, effect, attribute
 
 
-//TOOD: the problem I'm on right now, is: how do I share info between the system pieces? I could make everything public, but that feels dirty
+//TODO: How do I prevent users from changing values in the inspector that should not be directly editable?
+//		The problem is, the exposed variables need to be exposed in the base classes, but not the dependent / children classes
 
 public class SEA : MonoBehaviour{
 	[TabGroup("Update Chain")][SerializeField]
-	Dictionary<ISEA_System, List<ISEA_System>> updateChain;//When a class that is part of the SEA system updates, it will call a method on SEA saying it updated, and pass its type. This passed in type would then be put into the dictionary to get a list of dependent class, 
+	Dictionary<ISEAComponent, List<ISEAComponent>> updateChain;//When a class that is part of the SEA system updates, it will call a method on SEA saying it updated, and pass its type. This passed in type would then be put into the dictionary to get a list of dependent class, 
 											// each dependent class would then be gone through, and their update function would be called as well.
 
 
@@ -45,46 +46,44 @@ public class SEA : MonoBehaviour{
 	/////
 	/////						Update chain related methods
 	/////
-	public void UpdateChain(ISEA_System sea_system){
+	public void UpdateSEAComponentChain(ISEAComponent sea_system){
 		/* 
 			This gets called everytime a system piece finishes updating,
 			It will trigger dependent system pieces to update as well
 		*/
-		SetupUpdateChain();
+		SetupSEAComponentUpdateChain();
 
 
 
 		if(updateChain == null){
-			updateChain = new Dictionary<ISEA_System, List<ISEA_System>>();
+			updateChain = new Dictionary<ISEAComponent, List<ISEAComponent>>();
 		}
 
 		if(updateChain.ContainsKey(sea_system)){
-			List<ISEA_System> toCall = updateChain[sea_system];
+			List<ISEAComponent> toCall = updateChain[sea_system];
 
-			foreach(ISEA_System s in toCall){
-				s.UpdatePiece();
+			foreach(ISEAComponent s in toCall){
+				s.UpdateSEAComponent();
 			}
 		}
 	}
 
 
-	void SetupUpdateChain(){
-		if(updateChain == null){
-			updateChain = new Dictionary<ISEA_System, List<ISEA_System>>();
-		}
+	void SetupSEAComponentUpdateChain(){
+		updateChain = new Dictionary<ISEAComponent, List<ISEAComponent>>();
 
 
 		//BaseAttributes
-		SetupUpdateChainItem(startingAtts, new List<ISEA_System>{baseAtts});
-		SetupUpdateChainItem(purchasedAtts, new List<ISEA_System>{baseAtts});
+		SetupUpdateChainItem(startingAtts, new List<ISEAComponent>{baseAtts});
+		SetupUpdateChainItem(purchasedAtts, new List<ISEAComponent>{baseAtts});
 
 
 		//ActualAttributes
-		SetupUpdateChainItem(baseAtts, new List<ISEA_System>{actualAtts});
+		SetupUpdateChainItem(baseAtts, new List<ISEAComponent>{actualAtts});
 		//Need to add  effects to grab atts from effects
 	}
 
-	void SetupUpdateChainItem(ISEA_System caller, List<ISEA_System> callees){
+	void SetupUpdateChainItem(ISEAComponent caller, List<ISEAComponent> callees){
 
 		if(updateChain.ContainsKey(caller)){
 			updateChain[caller] = callees;

@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ISEA_System{
-	void UpdatePiece();
+public interface ISEAComponent{
+	void UpdateSEAComponent();
 }

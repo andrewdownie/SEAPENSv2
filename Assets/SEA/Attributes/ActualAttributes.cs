@@ -10,22 +10,15 @@ public class ActualAttributes : Attributes
     BaseAttributes baseAtts;
     //TODO: need to include effects, to add attributes from effects
 
-
-    void Start(){
-        GatherRefs();
-    }
-    void OnValidate(){
-        GatherRefs();
-    }
-    void GatherRefs(){
-        baseAtts = GetComponent<BaseAttributes>();
-    }
-
-    protected override void UpdateLocalPiece()
+    protected override void _UpdateSEAComponent()
     {
         foreach(AttributeEnum ae in System.Enum.GetValues(typeof(AttributeEnum))){
             attributeDict[ae] = baseAtts[ae];
         }
+    }
+
+    protected override void GatherRefs(){
+        baseAtts = GetComponent<BaseAttributes>();
     }
 }
 

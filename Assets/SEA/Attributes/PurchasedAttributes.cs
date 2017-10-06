@@ -6,9 +6,14 @@ using Sirenix.OdinInspector;
 
 public class PurchasedAttributes : Attributes
 {
-    protected override void UpdateLocalPiece()
+    protected override void GatherRefs()
     {
-        throw new System.NotImplementedException();
+        //There are no refs needed atm
+    }
+
+    protected override void _UpdateSEAComponent()
+    {
+        //Not yet implemented
     }
 }
 
