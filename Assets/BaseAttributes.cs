@@ -14,7 +14,7 @@ public class BaseAttributes : Attributes
     void OnValidate(){
         GatherRefs();
     }
-    void Awake(){
+    void Start(){
         GatherRefs();
     }
 
@@ -24,13 +24,12 @@ public class BaseAttributes : Attributes
     }
 
 
-    public override void UpdatePiece()
+    protected override void UpdateLocalPiece()
     {
         foreach(AttributeEnum ae in System.Enum.GetValues(typeof(AttributeEnum))){
             attributeDict[ae] = startingAtts[ae] + purchasedAtts[ae];
         }
 
-        sea.UpdateChain(this);
     }
 }
 

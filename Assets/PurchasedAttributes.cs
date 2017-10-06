@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 public class PurchasedAttributes : Attributes
 {
-    public override void UpdatePiece()
+    protected override void UpdateLocalPiece()
     {
         throw new System.NotImplementedException();
     }

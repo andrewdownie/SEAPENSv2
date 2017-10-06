@@ -25,12 +25,10 @@ public class SEA : MonoBehaviour{
 
 	void OnValidate(){
 		GatherRefs();
-		SetupUpdateChain();
 	}
 
 	void Awake() {
 		GatherRefs();
-		SetupUpdateChain();
 	}
 	
 
@@ -52,6 +50,14 @@ public class SEA : MonoBehaviour{
 			This gets called everytime a system piece finishes updating,
 			It will trigger dependent system pieces to update as well
 		*/
+		SetupUpdateChain();
+
+
+
+		if(updateChain == null){
+			updateChain = new Dictionary<ISEA_System, List<ISEA_System>>();
+		}
+
 		if(updateChain.ContainsKey(sea_system)){
 			List<ISEA_System> toCall = updateChain[sea_system];
 
@@ -63,7 +69,6 @@ public class SEA : MonoBehaviour{
 
 
 	void SetupUpdateChain(){
-
 		if(updateChain == null){
 			updateChain = new Dictionary<ISEA_System, List<ISEA_System>>();
 		}

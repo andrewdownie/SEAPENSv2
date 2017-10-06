@@ -12,7 +12,12 @@ public abstract class Attributes : SerializedMonoBehaviour, ISEA_System{
 	protected SEA sea;
 
 
-    public abstract void UpdatePiece();
+    public void UpdatePiece(){
+		UpdateLocalPiece();
+		sea.UpdateChain(this);
+	}
+
+	protected abstract void UpdateLocalPiece();
 
     void OnValidate(){
 		if(attributeDict == null){
