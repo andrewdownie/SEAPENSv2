@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 694319992}
   - component: {fileID: 694319997}
   - component: {fileID: 694319996}
+  - component: {fileID: 694319999}
   m_Layer: 0
   m_Name: FakePlayer
   m_TagString: Untagged
@@ -228,7 +229,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 0
+      Data: -3
     - Name: 
       Entry: 8
       Data: 
@@ -444,7 +445,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -539,7 +540,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -600,6 +601,77 @@ MonoBehaviour:
   sea: {fileID: 694319993}
   startingAtts: {fileID: 694319992}
   purchasedAtts: {fileID: 694319995}
+--- !u!114 &694319999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694319991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b5da6aff3c0fc45b019ab1723f499b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: attributeEffects
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[AttributeEnum, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: -6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: statEffects
+      Entry: 7
+      Data: 1|System.Collections.Generic.Dictionary`2[[StatEnum, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: percentStatEffects
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[StatEnum, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &1408513337
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,36 @@ using Sirenix.OdinInspector;
 
 
 public abstract class Attributes : SerializedMonoBehaviour, ISEAComponent{
+	///
+	///					The actual data for this class
+	///
 	[TabGroup("Attribute Dictionary")][SerializeField]
 	protected Dictionary<AttributeEnum, int> attributeDict;
 
+	///
+	///					Protected references
+	///
 	[TabGroup("GetComponent References")][SerializeField]
 	protected SEA sea;
+
+	///
+	///					Abstract methods
+	///
+	protected abstract void _UpdateSEAComponent();
+	protected abstract void GatherRefs();
+
+
+	///
+	///					Setup on start, and respond to changes in editor
+	///						DO NOT USE THESE METHODS IN CHILD CLASSES
+	void OnValidate(){
+		GatherRefs();
+		UpdateSEAComponent();
+    }
+	void Start(){
+		GatherRefs();
+		UpdateSEAComponent();
+	}
 
 
     public void UpdateSEAComponent(){
@@ -21,23 +46,13 @@ public abstract class Attributes : SerializedMonoBehaviour, ISEAComponent{
 			}
 		}
 
+		if(sea == null){
+			sea = GetComponent<SEA>();
+		}
+
 		_UpdateSEAComponent();
 		sea.UpdateSEAComponentChain(this);
 	}
-
-	protected abstract void _UpdateSEAComponent();
-
-	void OnValidate(){
-		GatherRefs();
-		UpdateSEAComponent();
-    }
-	void Start(){
-		GatherRefs();
-		UpdateSEAComponent();
-	}
-
-	protected abstract void GatherRefs();
-
 
 
 	///

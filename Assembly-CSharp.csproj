@@ -56,10 +56,13 @@
      <Compile Include="Assets\SEA\Attributes\BaseAttributes.cs" />
      <Compile Include="Assets\SEA\Attributes\PurchasedAttributes.cs" />
      <Compile Include="Assets\SEA\Attributes\StartingAttributes.cs" />
+     <Compile Include="Assets\SEA\Effects\AttributeEffects.cs" />
+     <Compile Include="Assets\SEA\Effects\Effect.cs" />
+     <Compile Include="Assets\SEA\Effects\PercentStatEffects.cs" />
+     <Compile Include="Assets\SEA\Effects\StatEffects.cs" />
      <Compile Include="Assets\SEA\ISEA_Component.cs" />
      <Compile Include="Assets\SEA\SEA.cs" />
-     <Compile Include="Assets\SEA\Stats\AttributeEffect.cs" />
-     <Compile Include="Assets\SEA\Stats\Effect.cs" />
+     <Compile Include="Assets\SEA\Stats\Stats.cs" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.xml" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.xml" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.xml" />
