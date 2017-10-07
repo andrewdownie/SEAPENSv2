@@ -16,6 +16,8 @@ public class SEA : MonoBehaviour{
 
 
 	[TabGroup("GetComponent References")][SerializeField]
+	public Effects effects;
+	[TabGroup("GetComponent References")][SerializeField]
 	public StartingAttributes startingAtts;
 	[TabGroup("GetComponent References")][SerializeField]
 	public PurchasedAttributes purchasedAtts;
@@ -28,7 +30,11 @@ public class SEA : MonoBehaviour{
 	[TabGroup("GetComponent References")][SerializeField]
 	public StartingStats startingStats;
 	[TabGroup("GetComponent References")][SerializeField]
+	public PurchasedStats purchasedStats;
+	[TabGroup("GetComponent References")][SerializeField]
 	public BaseStats baseStats;
+	[TabGroup("GetComponent References")][SerializeField]
+	public StartingActualStats startingActualStats;
 
 	void OnValidate(){
 		GatherRefs();
@@ -41,13 +47,17 @@ public class SEA : MonoBehaviour{
 
 
 	void GatherRefs(){
+		effects = GetComponent<Effects>();
+
 		startingAtts = GetComponent<StartingAttributes>();	
 		purchasedAtts = GetComponent<PurchasedAttributes>();	
 		baseAtts = GetComponent<BaseAttributes>();	
 		actualAtts = GetComponent<ActualAttributes>();	
 
 		baseStats = GetComponent<BaseStats>();
+		purchasedStats = GetComponent<PurchasedStats>();
 		startingStats = GetComponent<StartingStats>();
+		startingActualStats = GetComponent<StartingActualStats>();
 		
 	}
 
@@ -60,13 +70,20 @@ public class SEA : MonoBehaviour{
 	void SetupSEAComponentUpdateChain(){
 		updateChain = new Dictionary<ISEAComponent, List<ISEAComponent>>();
 
+		SetupUpdateChainItem(effects, new List<ISEAComponent>{actualAtts});
 
 		SetupUpdateChainItem(startingAtts, new List<ISEAComponent>{baseAtts});
 		SetupUpdateChainItem(purchasedAtts, new List<ISEAComponent>{baseAtts});
 
 
 		SetupUpdateChainItem(baseAtts, new List<ISEAComponent>{actualAtts, baseStats});
-		SetupUpdateChainItem(startingStats, new List<ISEAComponent>{baseStats});
+		SetupUpdateChainItem(startingStats, new List<ISEAComponent>{baseStats, startingActualStats});
+
+
+		SetupUpdateChainItem(actualAtts, new List<ISEAComponent>{startingActualStats});
+
+
+		SetupUpdateChainItem(purchasedStats, new List<ISEAComponent>{baseStats, startingActualStats});
 
 
 	}

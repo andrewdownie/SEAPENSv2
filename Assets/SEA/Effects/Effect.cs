@@ -5,6 +5,8 @@ using Sirenix.OdinInspector;
 
 public class Effect : SerializedMonoBehaviour {
 	[SerializeField]
+	Effects effects;
+	[SerializeField]
 	EffectCategory effectCategory;
 
 
@@ -15,6 +17,19 @@ public class Effect : SerializedMonoBehaviour {
 	Dictionary<StatEnum, int> statEffects;
 	[TabGroup("Percent Stat Effects")][SerializeField]
 	Dictionary<StatEnum, int> percentStatEffects;
+
+	void Start(){
+		GatherRefs();
+		((ISEAComponent)effects).UpdateSEAComponent();
+	}
+	void OnValidate(){
+		GatherRefs();
+		((ISEAComponent)effects).UpdateSEAComponent();
+	}
+
+	void GatherRefs(){
+		effects = transform.parent.GetComponent<Effects>();
+	}
 
 	public EffectCategory EffectCategory{
 		get{return effectCategory;}

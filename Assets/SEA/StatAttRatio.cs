@@ -31,7 +31,13 @@ public static class StatAttRatio{
 
 		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
 			statAttRatio[se] = new Dictionary<AttributeEnum, int>();
+
+			foreach(AttributeEnum ae in System.Enum.GetValues(typeof(AttributeEnum))){
+				statAttRatio[se][ae] = 0;
+			}
+
 		}
+
 
 		CreateRatios();
 	}
@@ -41,5 +47,9 @@ public static class StatAttRatio{
 
 		statAttRatio[StatEnum.health][AttributeEnum.constitution] = 25;
 		statAttRatio[StatEnum.health][AttributeEnum.strength] = 5;
+
+
+		statAttRatio[StatEnum.dodge][AttributeEnum.agility] = 25;
+		statAttRatio[StatEnum.dodge][AttributeEnum.dexterity] = 5;
 	}
 }

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class Effects : MonoBehaviour {
+public class Effects : MonoBehaviour, ISEAComponent{
 
 	[SerializeField]
 	GameObject effectGameObject;
+	[SerializeField]
+	SEA sea;
 
 	[SerializeField]
 	List<Effect> effectList;
@@ -14,9 +16,11 @@ public class Effects : MonoBehaviour {
 
 	void Start(){
 		GatherEffects();
+		sea.UpdateSEAComponentChain(this);
 	}
 	void OnValidate(){
 		GatherEffects();
+		sea.UpdateSEAComponentChain(this);
 	}
 
 	void GatherEffects(){
@@ -69,8 +73,13 @@ public class Effects : MonoBehaviour {
 		return effectsOfCategory;
 	}
 
-	//TODO: there has to be a better way... right? Look into iterators
-	public List<Effect> EffectList{
+    void ISEAComponent.UpdateSEAComponent()
+    {
+		sea.UpdateSEAComponentChain(this);
+    }
+
+    //TODO: there has to be a better way... right? Look into iterators
+    public List<Effect> EffectList{
 		get{return effectList;}
 	}
 

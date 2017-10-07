@@ -183,11 +183,12 @@ GameObject:
   - component: {fileID: 694319994}
   - component: {fileID: 694319993}
   - component: {fileID: 694319998}
-  - component: {fileID: 694319995}
   - component: {fileID: 694319992}
+  - component: {fileID: 694319995}
   - component: {fileID: 694319997}
   - component: {fileID: 694319996}
   - component: {fileID: 694320001}
+  - component: {fileID: 694320002}
   - component: {fileID: 694320000}
   - component: {fileID: 694319999}
   m_Layer: 0
@@ -268,7 +269,7 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 3
-      Data: 16
+      Data: 17
     - Name: 
       Entry: 8
       Data: 
@@ -302,12 +303,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd5b0dd7cc553a4584680619aa1fd8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effects: {fileID: 694319998}
   startingAtts: {fileID: 694319992}
   purchasedAtts: {fileID: 694319995}
   baseAtts: {fileID: 694319997}
   actualAtts: {fileID: 694319996}
   startingStats: {fileID: 694320001}
+  purchasedStats: {fileID: 694320002}
   baseStats: {fileID: 694320000}
+  startingActualStats: {fileID: 694319999}
 --- !u!4 &694319994
 Transform:
   m_ObjectHideFlags: 0
@@ -451,7 +455,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 12
+      Data: 52
     - Name: 
       Entry: 8
       Data: 
@@ -487,7 +491,7 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 3
-      Data: 46
+      Data: 109
     - Name: 
       Entry: 8
       Data: 
@@ -583,7 +587,7 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 3
-      Data: 46
+      Data: 47
     - Name: 
       Entry: 8
       Data: 
@@ -620,7 +624,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectGameObject: {fileID: 1407121514}
-  effectList: []
+  sea: {fileID: 694319993}
+  effectList:
+  - {fileID: 1407121516}
+  - {fileID: 1407121517}
 --- !u!114 &694319999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,7 +663,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 0
+      Data: -27
     - Name: 
       Entry: 8
       Data: 
@@ -668,7 +675,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 3
-      Data: 0
+      Data: -50
     - Name: 
       Entry: 8
       Data: 
@@ -680,7 +687,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 0
+      Data: 357
     - Name: 
       Entry: 8
       Data: 
@@ -726,7 +733,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 0
+      Data: -27
     - Name: 
       Entry: 8
       Data: 
@@ -738,7 +745,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 3
-      Data: 1254
+      Data: 1185
     - Name: 
       Entry: 8
       Data: 
@@ -750,7 +757,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 0
+      Data: 752
     - Name: 
       Entry: 8
       Data: 
@@ -787,7 +794,7 @@ MonoBehaviour:
         mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -796,7 +803,101 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 3
-      Data: 22
+      Data: -47
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  sea: {fileID: 694319993}
+--- !u!114 &694320002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694319991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2489ff6a986f5ad48b507fbb5a7f2593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[StatEnum, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -27
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: -3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -869,10 +970,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 3
-      Data: 11
+      Data: 62
     - Name: 
       Entry: 8
       Data: 
@@ -888,6 +989,7 @@ MonoBehaviour:
     - Name: percentStatEffects
       Entry: 6
       Data: 
+  effects: {fileID: 694319998}
   effectCategory: 0
 --- !u!114 &1407121517
 MonoBehaviour:
@@ -924,7 +1026,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: -10
+      Data: 40
     - Name: 
       Entry: 8
       Data: 
@@ -940,6 +1042,7 @@ MonoBehaviour:
     - Name: percentStatEffects
       Entry: 6
       Data: 
+  effects: {fileID: 694319998}
   effectCategory: 0
 --- !u!1 &1408513337
 GameObject:

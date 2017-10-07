@@ -35,15 +35,18 @@ public abstract class Stats : SerializedMonoBehaviour, ISEAComponent
 		GatherRefs();
 		UpdateSEAComponent();
 	}
+	void Setup(){
+		statDict = new Dictionary<StatEnum, int>();
+
+		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
+			statDict.Add(se, 0);
+		}
+	}
 
 
     public void UpdateSEAComponent(){
 		if(statDict == null){
-			statDict = new Dictionary<StatEnum, int>();
-
-			foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
-				statDict.Add(se, 0);
-			}
+			Setup();
 		}
 
 		if(sea == null){
@@ -59,7 +62,12 @@ public abstract class Stats : SerializedMonoBehaviour, ISEAComponent
 	///					Indexer
 	///
 	public int this[StatEnum se]{
-		get{ return statDict[se];}
+		get{
+			if(statDict == null){
+				Setup();
+			}
+			return statDict[se];
+		}
 	}
 }
 
