@@ -63,6 +63,10 @@
      <Compile Include="Assets\SEA\Effects\StatEffects.cs" />
      <Compile Include="Assets\SEA\ISEA_Component.cs" />
      <Compile Include="Assets\SEA\SEA.cs" />
+     <Compile Include="Assets\SEA\StatAttRatio.cs" />
+     <Compile Include="Assets\SEA\Stats\BaseStats.cs" />
+     <Compile Include="Assets\SEA\Stats\StartingActualStats.cs" />
+     <Compile Include="Assets\SEA\Stats\StartingStats.cs" />
      <Compile Include="Assets\SEA\Stats\Stats.cs" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.xml" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.xml" />

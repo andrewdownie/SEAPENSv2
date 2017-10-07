@@ -4,11 +4,39 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 public class Effects : MonoBehaviour {
+
 	[SerializeField]
 	GameObject effectGameObject;
 
 	[SerializeField]
 	List<Effect> effectList;
+
+
+	void Start(){
+		GatherEffects();
+	}
+	void OnValidate(){
+		GatherEffects();
+	}
+
+	void GatherEffects(){
+		/*
+			Gathers effects that are already on the effect gameobject, and adds them to the effectList
+		*/
+
+		if(effectList == null){
+			effectList = new List<Effect>();
+		}
+		
+		Effect[] effects = GetComponents<Effect>();
+		foreach(Effect e in effects){
+			Debug.Log(e);
+			if(!effectList.Contains(e)){
+				effectList.Add(e);
+			}
+		}
+
+	}
 
 
 	public void AddEffect(

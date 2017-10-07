@@ -182,11 +182,14 @@ GameObject:
   m_Component:
   - component: {fileID: 694319994}
   - component: {fileID: 694319993}
+  - component: {fileID: 694319998}
   - component: {fileID: 694319995}
   - component: {fileID: 694319992}
   - component: {fileID: 694319997}
   - component: {fileID: 694319996}
-  - component: {fileID: 694319998}
+  - component: {fileID: 694320001}
+  - component: {fileID: 694320000}
+  - component: {fileID: 694319999}
   m_Layer: 0
   m_Name: SEA
   m_TagString: Untagged
@@ -303,6 +306,8 @@ MonoBehaviour:
   purchasedAtts: {fileID: 694319995}
   baseAtts: {fileID: 694319997}
   actualAtts: {fileID: 694319996}
+  startingStats: {fileID: 694320001}
+  baseStats: {fileID: 694320000}
 --- !u!4 &694319994
 Transform:
   m_ObjectHideFlags: 0
@@ -352,7 +357,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 19
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -376,7 +381,7 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 3
-      Data: 0
+      Data: 30
     - Name: 
       Entry: 8
       Data: 
@@ -446,7 +451,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 21
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -482,7 +487,7 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 3
-      Data: 16
+      Data: 46
     - Name: 
       Entry: 8
       Data: 
@@ -542,7 +547,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 20
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -578,7 +583,7 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 3
-      Data: 16
+      Data: 46
     - Name: 
       Entry: 8
       Data: 
@@ -615,9 +620,193 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectGameObject: {fileID: 1407121514}
-  effectList:
-  - {fileID: 1407121516}
-  - {fileID: 1407121517}
+  effectList: []
+--- !u!114 &694319999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694319991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79eab9eda1e233e48a2f62238b175c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[StatEnum, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  sea: {fileID: 694319993}
+--- !u!114 &694320000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694319991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9136a9f704e43641897a8bbb6ffc7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[StatEnum, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1254
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  sea: {fileID: 694319993}
+--- !u!114 &694320001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694319991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f393b5f27acc44f8a75b4119a3f84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[StatEnum, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 22
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  sea: {fileID: 694319993}
 --- !u!1 &1407121514
 GameObject:
   m_ObjectHideFlags: 0

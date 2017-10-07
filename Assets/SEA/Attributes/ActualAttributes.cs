@@ -17,6 +17,7 @@ public class ActualAttributes : Attributes
             attributeDict[ae] = baseAtts[ae];
         }
 
+        // Go through each effect, and add their attributes to our player
         foreach(Effect e in effects.EffectList){
             foreach(AttributeEnum ae in System.Enum.GetValues(typeof(AttributeEnum))){
                 attributeDict[ae] += e.AttributeEffect(ae);

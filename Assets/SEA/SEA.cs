@@ -24,6 +24,12 @@ public class SEA : MonoBehaviour{
 	[TabGroup("GetComponent References")][SerializeField]
 	public ActualAttributes actualAtts;
 
+
+	[TabGroup("GetComponent References")][SerializeField]
+	public StartingStats startingStats;
+	[TabGroup("GetComponent References")][SerializeField]
+	public BaseStats baseStats;
+
 	void OnValidate(){
 		GatherRefs();
 	}
@@ -39,6 +45,9 @@ public class SEA : MonoBehaviour{
 		purchasedAtts = GetComponent<PurchasedAttributes>();	
 		baseAtts = GetComponent<BaseAttributes>();	
 		actualAtts = GetComponent<ActualAttributes>();	
+
+		baseStats = GetComponent<BaseStats>();
+		startingStats = GetComponent<StartingStats>();
 		
 	}
 
@@ -46,6 +55,22 @@ public class SEA : MonoBehaviour{
 	/////
 	/////						Update chain related methods
 	/////
+
+
+	void SetupSEAComponentUpdateChain(){
+		updateChain = new Dictionary<ISEAComponent, List<ISEAComponent>>();
+
+
+		SetupUpdateChainItem(startingAtts, new List<ISEAComponent>{baseAtts});
+		SetupUpdateChainItem(purchasedAtts, new List<ISEAComponent>{baseAtts});
+
+
+		SetupUpdateChainItem(baseAtts, new List<ISEAComponent>{actualAtts, baseStats});
+		SetupUpdateChainItem(startingStats, new List<ISEAComponent>{baseStats});
+
+
+	}
+
 	public void UpdateSEAComponentChain(ISEAComponent sea_system){
 		/* 
 			This gets called everytime a system piece finishes updating,
@@ -66,21 +91,6 @@ public class SEA : MonoBehaviour{
 				s.UpdateSEAComponent();
 			}
 		}
-	}
-
-
-	void SetupSEAComponentUpdateChain(){
-		updateChain = new Dictionary<ISEAComponent, List<ISEAComponent>>();
-
-
-		//BaseAttributes
-		SetupUpdateChainItem(startingAtts, new List<ISEAComponent>{baseAtts});
-		SetupUpdateChainItem(purchasedAtts, new List<ISEAComponent>{baseAtts});
-
-
-		//ActualAttributes
-		SetupUpdateChainItem(baseAtts, new List<ISEAComponent>{actualAtts});
-		//Need to add  effects to grab atts from effects
 	}
 
 	void SetupUpdateChainItem(ISEAComponent caller, List<ISEAComponent> callees){
