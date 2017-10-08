@@ -64,6 +64,7 @@
      <Compile Include="Assets\SEA\ISEA_Component.cs" />
      <Compile Include="Assets\SEA\SEA.cs" />
      <Compile Include="Assets\SEA\StatAttRatio.cs" />
+     <Compile Include="Assets\SEA\Stats\ActualStats.cs" />
      <Compile Include="Assets\SEA\Stats\BaseStats.cs" />
      <Compile Include="Assets\SEA\Stats\PurchasedStats.cs" />
      <Compile Include="Assets\SEA\Stats\StartingActualStats.cs" />

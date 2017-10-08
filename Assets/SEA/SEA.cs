@@ -35,6 +35,8 @@ public class SEA : MonoBehaviour{
 	public BaseStats baseStats;
 	[TabGroup("GetComponent References")][SerializeField]
 	public StartingActualStats startingActualStats;
+	[TabGroup("GetComponent References")][SerializeField]
+	public ActualStats actualStats;
 
 	void OnValidate(){
 		GatherRefs();
@@ -58,6 +60,7 @@ public class SEA : MonoBehaviour{
 		purchasedStats = GetComponent<PurchasedStats>();
 		startingStats = GetComponent<StartingStats>();
 		startingActualStats = GetComponent<StartingActualStats>();
+		actualStats = GetComponent<ActualStats>();
 		
 	}
 
@@ -70,7 +73,7 @@ public class SEA : MonoBehaviour{
 	void SetupSEAComponentUpdateChain(){
 		updateChain = new Dictionary<ISEAComponent, List<ISEAComponent>>();
 
-		SetupUpdateChainItem(effects, new List<ISEAComponent>{actualAtts});
+		SetupUpdateChainItem(effects, new List<ISEAComponent>{actualAtts, actualStats});
 
 		SetupUpdateChainItem(startingAtts, new List<ISEAComponent>{baseAtts});
 		SetupUpdateChainItem(purchasedAtts, new List<ISEAComponent>{baseAtts});
@@ -84,6 +87,9 @@ public class SEA : MonoBehaviour{
 
 
 		SetupUpdateChainItem(purchasedStats, new List<ISEAComponent>{baseStats, startingActualStats});
+
+
+		SetupUpdateChainItem(startingActualStats, new List<ISEAComponent>{actualStats});
 
 
 	}

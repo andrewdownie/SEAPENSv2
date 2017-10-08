@@ -45,8 +45,8 @@ public static class StatAttRatio{
 
 	public static void CreateRatios(){
 
-		statAttRatio[StatEnum.health][AttributeEnum.constitution] = 25;
-		statAttRatio[StatEnum.health][AttributeEnum.strength] = 5;
+		statAttRatio[StatEnum.max_health][AttributeEnum.constitution] = 25;
+		statAttRatio[StatEnum.max_health][AttributeEnum.strength] = 5;
 
 
 		statAttRatio[StatEnum.dodge][AttributeEnum.agility] = 25;

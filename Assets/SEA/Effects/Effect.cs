@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
+//TODO: need to add damage
+
 public class Effect : SerializedMonoBehaviour {
 	[SerializeField]
 	Effects effects;
@@ -20,11 +22,36 @@ public class Effect : SerializedMonoBehaviour {
 
 	void Start(){
 		GatherRefs();
+		Setup();
 		((ISEAComponent)effects).UpdateSEAComponent();
 	}
 	void OnValidate(){
 		GatherRefs();
+		Setup();
 		((ISEAComponent)effects).UpdateSEAComponent();
+	}
+
+	void Setup(){
+		if(attributeEffects == null){
+			attributeEffects = new Dictionary<AttributeEnum, int>();
+			foreach(AttributeEnum ae in System.Enum.GetValues(typeof(AttributeEnum))){
+				attributeEffects.Add(ae, 0);
+			}
+		}
+
+		if(statEffects == null){
+			statEffects = new Dictionary<StatEnum, int>();
+			foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
+				statEffects.Add(se, 0);
+			}
+		}
+
+		if(percentStatEffects == null){
+			percentStatEffects = new Dictionary<StatEnum, int>();
+			foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
+				percentStatEffects.Add(se, 0);
+			}
+		}
 	}
 
 	void GatherRefs(){
@@ -48,6 +75,34 @@ public class Effect : SerializedMonoBehaviour {
 		//TODO: create an effect data class that has the dictionaryies that Effect contains but is just a struct that can be passed around?
 	}
 
+	///
+	///						Tally stats
+	///
+	public Dictionary<StatEnum, int> TallyStats(Dictionary<StatEnum, int> tallyDict){
+		return _TallyStats(statEffects, tallyDict);
+	}
+
+	public Dictionary<StatEnum, int> TallyPercentStats(Dictionary<StatEnum, int> tallyDict){
+		return _TallyStats(percentStatEffects, tallyDict);
+	}
+
+	Dictionary<StatEnum, int> _TallyStats(Dictionary<StatEnum, int> addFromDict, Dictionary<StatEnum, int> tallyDict){
+		if(tallyDict == null){
+			return null;
+		}
+		Setup();
+
+		foreach(StatEnum se in addFromDict.Keys){
+			if(tallyDict.ContainsKey(se)){
+				tallyDict[se] += statEffects[se];
+			}
+			else{
+				tallyDict.Add(se, statEffects[se]);
+			}
+		}
+
+		return tallyDict;
+	}
 
 
 	///

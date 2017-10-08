@@ -43,6 +43,9 @@ public abstract class Stats : SerializedMonoBehaviour, ISEAComponent
 		}
 	}
 
+	public List<StatEnum> Keys(){
+		return new List<StatEnum>(statDict.Keys);
+	}
 
     public void UpdateSEAComponent(){
 		if(statDict == null){
@@ -74,6 +77,6 @@ public abstract class Stats : SerializedMonoBehaviour, ISEAComponent
 
 public enum StatEnum{
 	walking_speed,
-	health,
+	max_health,
 	dodge,
 }
