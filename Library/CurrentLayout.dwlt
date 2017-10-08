@@ -71,7 +71,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 342}
   m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 11
+  controlID: 58
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 481, y: 342}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 0
-  controlID: 68
+  controlID: 92
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,8 +139,8 @@ MonoBehaviour:
     y: 0
     width: 264
     height: 867
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -166,10 +166,10 @@ MonoBehaviour:
     y: 30
     width: 1500
     height: 867
-  m_MinSize: {x: 683, y: 342}
-  m_MaxSize: {x: 12008, y: 8042}
+  m_MinSize: {x: 681, y: 342}
+  m_MaxSize: {x: 12006, y: 8042}
   vertical: 0
-  controlID: 67
+  controlID: 91
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -511,9 +511,9 @@ MonoBehaviour:
     height: 846
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 96290000
-    m_LastClickedID: 10646
-    m_ExpandedIDs: 18fcffff0000000096290000
+    m_SelectedIDs: 98290000
+    m_LastClickedID: 10648
+    m_ExpandedIDs: 18fcffff0000000098290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -600,19 +600,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/SEA
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/SEA
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\drew\OneDrive\Development\unity\SEAPENSv2
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c4280000
-    m_LastClickedID: 10436
-    m_ExpandedIDs: 0000000042270000d0280000
+    m_SelectedIDs: 46270000
+    m_LastClickedID: 10054
+    m_ExpandedIDs: 0000000046270000d428000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -640,7 +640,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000042270000d0280000
+    m_ExpandedIDs: 0000000046270000d4280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -665,24 +665,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 82290000
-    m_LastClickedInstanceID: 10626
+    m_SelectedInstanceIDs: 98290000
+    m_LastClickedInstanceID: 10648
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: ce270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: DictionaryExtensions
+      m_OriginalName: DictionaryExtensions
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 10746
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:

@@ -127,6 +127,34 @@ public class SEA : MonoBehaviour{
 
 	}
 
+	public static Dictionary<StatEnum, int> InitStatDict(){
+		/*
+			Creates a new dict with every key added, and set to zero.
+		*/
+		Dictionary<StatEnum, int> dict = new Dictionary<StatEnum, int>();
+
+
+		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
+			dict[se] = 0;
+		}
+
+		return dict;
+	}
+
+	public static Dictionary<AttributeEnum, int> InitAttDict(){
+		/*
+			Creates a new dict with every key added, and set to zero.
+		*/
+		Dictionary<AttributeEnum, int> dict = new Dictionary<AttributeEnum, int>();
+
+
+		foreach(AttributeEnum se in System.Enum.GetValues(typeof(AttributeEnum))){
+			dict[se] = 0;
+		}
+
+		return dict;
+	}
+
 }
 
 

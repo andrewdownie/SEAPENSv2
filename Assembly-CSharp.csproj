@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DictionaryExtensions.cs" />
      <Compile Include="Assets\SEA\Attributes\ActualAttributes.cs" />
      <Compile Include="Assets\SEA\Attributes\Attributes.cs" />
      <Compile Include="Assets\SEA\Attributes\BaseAttributes.cs" />
