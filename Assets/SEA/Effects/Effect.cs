@@ -94,10 +94,10 @@ public class Effect : SerializedMonoBehaviour {
 
 		foreach(StatEnum se in addFromDict.Keys){
 			if(tallyDict.ContainsKey(se)){
-				tallyDict[se] += statEffects[se];
+				tallyDict[se] += addFromDict[se];
 			}
 			else{
-				tallyDict.Add(se, statEffects[se]);
+				tallyDict.Add(se, addFromDict[se]);
 			}
 		}
 

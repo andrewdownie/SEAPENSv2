@@ -18,6 +18,8 @@ public class ActualStats : Stats
     protected override void _UpdateSEAComponent()
     {
 		//Copy the startingActualStats statsDict (this is slow, but it is readonly, which is nice)
+		//TODO: this happens at the bottom now
+		
 		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
 			if(statDict.ContainsKey(se)){
 				statDict[se] = startingActualStats[se];
@@ -26,6 +28,7 @@ public class ActualStats : Stats
 				statDict.Add(se, startingActualStats[se]);
 			}
 		}
+		
 
 
 		//
@@ -37,69 +40,69 @@ public class ActualStats : Stats
 		List<Effect> toggleEffects = effects.EffectsOfCategory(EffectCategory.toggle);
 
 
-		Dictionary<StatEnum, int> resultingStats;
-		Dictionary<StatEnum, int> resultingPercentStats;
+		Dictionary<StatEnum, int> talliedStats;
+		Dictionary<StatEnum, int> talliedPercentStats;
 
 
 
 		//
 		//					Go through equipment effect stats
 		//
-		resultingStats = SEA.InitStatDict();
-		resultingPercentStats = SEA.InitStatDict();
+		talliedStats = SEA.InitStatDict();
+		talliedPercentStats = SEA.InitStatDict();
 		foreach(Effect e in equipmentEffects){
-			resultingStats = e.TallyStats(resultingStats);
-			resultingPercentStats = e.TallyPercentStats(resultingPercentStats);
+			talliedStats = e.TallyStats(talliedStats);
+			talliedPercentStats = e.TallyPercentStats(talliedPercentStats);
 		}
 
 		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
-			statDict[se] += resultingStats[se] + (startingActualStats[se] * resultingPercentStats[se] / 100);
+			statDict[se] += talliedStats[se] + (startingActualStats[se] * talliedPercentStats[se] / 100);
+			Debug.Log(statDict[se]);
+			//TODO: this comes out as 0 and 10000...
 		}
 
 
 		//
 		//					Go through active effect stats
 		//
-		resultingStats = SEA.InitStatDict();
-		resultingPercentStats = SEA.InitStatDict();
+		talliedStats = SEA.InitStatDict();
+		talliedPercentStats = SEA.InitStatDict();
 		foreach(Effect e in activeEffects){
-			resultingStats = e.TallyStats(resultingStats);
-			resultingPercentStats = e.TallyPercentStats(resultingPercentStats);
+			talliedStats = e.TallyStats(talliedStats);
+			talliedPercentStats = e.TallyPercentStats(talliedPercentStats);
 		}
 
 		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
-			statDict[se] += resultingStats[se] + (startingActualStats[se] * resultingPercentStats[se] / 100);
-			Debug.Log(resultingPercentStats[se]);
-			//TODO: this is coming out as zero, even though adding an effect with a percent modifier is chaning actual stats,
+			statDict[se] += talliedStats[se] + (startingActualStats[se] * talliedPercentStats[se] / 100);
 		}
 
 		//
 		//					Go through instant effect stats
 		//
-		resultingStats = SEA.InitStatDict();
-		resultingPercentStats = SEA.InitStatDict();
+		talliedStats = SEA.InitStatDict();
+		talliedPercentStats = SEA.InitStatDict();
 		foreach(Effect e in instantEffects){
-			resultingStats = e.TallyStats(resultingStats);
-			resultingPercentStats = e.TallyPercentStats(resultingPercentStats);
+			talliedStats = e.TallyStats(talliedStats);
+			talliedPercentStats = e.TallyPercentStats(talliedPercentStats);
 		}
 
 		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
-			statDict[se] += resultingStats[se] + (startingActualStats[se] * resultingPercentStats[se] / 100);
+			statDict[se] += talliedStats[se] + (startingActualStats[se] * talliedPercentStats[se] / 100);
 		}
 
 
 		//
 		//					Go through toggle effect stats
 		//
-		resultingStats = SEA.InitStatDict();
-		resultingPercentStats = SEA.InitStatDict();
+		talliedStats = SEA.InitStatDict();
+		talliedPercentStats = SEA.InitStatDict();
 		foreach(Effect e in toggleEffects){
-			resultingStats = e.TallyStats(resultingStats);
-			resultingPercentStats = e.TallyPercentStats(resultingPercentStats);
+			talliedStats = e.TallyStats(talliedStats);
+			talliedPercentStats = e.TallyPercentStats(talliedPercentStats);
 		}
 
 		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
-			statDict[se] += resultingStats[se] + (startingActualStats[se] * resultingPercentStats[se] / 100);
+			statDict[se] += talliedStats[se] + (startingActualStats[se] * talliedPercentStats[se] / 100);
 		}
 
 
@@ -107,7 +110,7 @@ public class ActualStats : Stats
 		//					Add the starting actual stats, and clamp min value to 1
 		//
 		foreach(StatEnum se in System.Enum.GetValues(typeof(StatEnum))){
-			statDict[se] += startingActualStats[se];
+			//statDict[se] += startingActualStats[se];
 
 			if(statDict[se] < 1){
 				statDict[se] = 1;
